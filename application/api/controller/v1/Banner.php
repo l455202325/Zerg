@@ -8,10 +8,9 @@
 
 namespace app\api\controller\v1;
 
-use app\api\lib\exception\BannerMissException;
-use app\api\validate\IDMastBePositiveInt;
+use app\lib\exception\BannerMissException;
 use app\api\model\Banner as BannerModel;
-use think\response\Json;
+use app\api\validate\IDMastBePositiveInt;
 
 
 class Banner
@@ -25,12 +24,10 @@ class Banner
      */
     public function getBanner($id){
         (new IDMastBePositiveInt())->goCheck();
-//        $banner = BannerModel::getBannerById($id);
-        $banner = BannerModel::get($id);
+        $banner = BannerModel::getBannerById($id);
         if (!$banner){
             throw new BannerMissException();
         }
-
         return $banner;
     }
 }

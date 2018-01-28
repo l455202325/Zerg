@@ -6,10 +6,8 @@
  * Time: 15:41
  */
 
-namespace app\api\lib\exception;
+namespace app\lib\exception;
 
-
-use think\Exception;
 
 class ParameterException extends BaseException
 {

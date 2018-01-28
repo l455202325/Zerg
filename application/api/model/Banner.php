@@ -9,32 +9,18 @@
 namespace app\api\model;
 
 
-use think\Db;
-use think\Model;
-
-class Banner extends Model
+class Banner extends BaseModel
 {
 
+    protected $hidden = ['update_time','delete_time'];
+
+    public function items(){
+        // 1 关联模型 2.关联模型外键（关联的字段） 3.当前模型的主键
+        return $this->hasMany('BannerItem','banner_id','id');
+    }
     public static function getBannerById($id){
         //TODO:根据Banner Id 号获取banner 信息
-        //1.使用原生的sql语句查询
-//        $result = Db::query(
-//            'select * from banner_item where banner_id=?',[$id]);
-
-        //2.使用构造器查询
-//        $result = Db::table('banner_item')->where('banner_id','=',$id)->select();
-
-        $result = Db::table('banner_item')
-            ->where(function ($query) use ($id){
-                $query->where('banner_id','=',$id);
-            })
-            ->select();
-
-        //ORM 对象关系映射
-
-        // 模型
-
-        return $result;
-
+        $banner = self::with(['items','items.img'])->find($id);
+        return $banner;
     }
 }
