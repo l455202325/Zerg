@@ -33,7 +33,7 @@ class BaseValidate extends Validate
         }
     }
 
-    protected function idMastBePositiveInteger($value ,$rule = '',$data = '',$field = ''){
+    protected function isPositiveInteger($value ,$rule = '',$data = '',$field = ''){
         if (is_numeric($value) && is_int($value+0) && ($value + 0) > 0){
             return true;
         }else{
@@ -41,4 +41,6 @@ class BaseValidate extends Validate
 //            return $field.'必须为正整数';
         }
     }
+
+
 }

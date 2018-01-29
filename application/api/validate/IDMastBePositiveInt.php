@@ -12,7 +12,7 @@ namespace app\api\validate;
 class IDMastBePositiveInt extends BaseValidate
 {
     protected $rule = [
-        'id' => 'require|idMastBePositiveInteger'
+        'id' => 'require|isPositiveInteger'
     ];
 
     protected $message = [

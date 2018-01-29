@@ -27,7 +27,7 @@ class IDCollection extends BaseValidate
         }
 
         foreach ($values as $id){
-            if (!$this->idMastBePositiveInteger($id)){
+            if (!$this->isPositiveInteger($id)){
                 return false;
             }
         }
