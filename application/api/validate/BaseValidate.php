@@ -9,7 +9,8 @@
 namespace app\api\validate;
 
 
-use app\api\lib\exception\ParameterException;
+
+use app\lib\exception\ParameterException;
 use think\Request;
 use think\Validate;
 
