@@ -29,7 +29,7 @@ class Theme
 
         $result = ThemeModel::with('TopicImg,HeadImg')->select($ids);
 
-        if (!$result){
+        if ($result->isEmpty()){
             throw new ThemeException();
         }
         return $result;
@@ -42,7 +42,7 @@ class Theme
 //        $result = ThemeModel::with('HeadImg,Products')->find($id);
         $result = ThemeModel::getThemeWithProduct($id);
 
-        if (!$result){
+        if ($result->isEmpty()){
             throw new ThemeException();
         }
         return $result;

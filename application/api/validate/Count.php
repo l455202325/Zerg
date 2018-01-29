@@ -11,10 +11,11 @@ namespace app\api\validate;
 
 class Count extends BaseValidate
 
-{   protected $rule = [
+{
+    protected $rule = [
         'count' => 'isPositiveInteger|between:1,20'
     ];
-protected $message = [
-    'count' => 'count必须为正整数，并且必须在1-20之间'
-];
+    protected $message = [
+        'count' => 'count必须为正整数，并且必须在1-20之间'
+    ];
 }
